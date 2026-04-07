@@ -1,0 +1,216 @@
+@font-face {
+  font-family: 'poppins';
+  src: url('../resoure/fonts/popins/Poppins-Regular.ttf') format('truetype');
+
+  font-style: normal;
+  font-weight: bolder;
+}
+:root{
+    --duration: 4000ms;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+
+body {
+    background-color: #f2f3f5;
+}
+
+.container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    /* translate: -50% -50%; */
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
+    min-height: 90px;
+    height: auto;
+    padding: 20px 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.247);
+    animation: fadeUp 1s ease-out forwards;
+}
+
+.div--input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.div--input p{
+    padding-top: 5px;
+}
+
+h1 {
+    position: absolute;
+    top: 19%;
+    left: 50%;
+    /* translate: -50% -50%; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 52px;
+    letter-spacing: -2px;
+    text-align: center;
+    animation: fadeUp 1s ease-out forwards;
+}
+
+.div--form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+}
+
+
+.div--form button {
+    margin: 20px 0 0;
+    padding: 16px 0;
+    background-color: #0D6EFD;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.div--form button:hover {
+    background-color: #0000fbc6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.container p {
+    padding-top: 20px;
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.container a {
+    color: #0D6EFD;
+    text-decoration: none;
+}
+
+.div--form span{
+    display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input {
+
+    padding: 16px 20px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.253);
+    border-radius: 6px;
+    text-align: center;
+}
+
+input::placeholder {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+input:focus {
+    /* border-color: #4F46E5; */
+    outline: none;
+}
+
+.toastSusscess{
+    position: fixed;
+    max-width: 350px;
+    width: 100%;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 20px;
+}
+.div--success{
+    text-align: center;
+    background-color: rgba(16, 208, 86, 0.222) ;
+    padding: 0px;
+    width: 100%;
+    border-left: 5px solid #0dfdb1;
+    border-radius: 6px;
+    overflow: hidden;
+    color: rgb(33, 104, 33);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50px;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.208),
+                0 0 2px 4px rgba(43, 217, 226, 0.2);
+    opacity: 0;
+    transform: translateX(120%) scale(0.9);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.div--success h4{
+    padding: 6px 5px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.div--success.active{
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+    /* animation: goIn 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; */
+}
+.process.active{
+    animation: process var(--duration) linear forwards;
+}
+.div--success .process{
+    height: 4px;
+    background-color: #0dfdb1;
+    transform-origin: left;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%) scale(0);
+
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+
+    }
+}
+@keyframes process{
+    0%{
+        width: 100%;
+    }
+    25%{
+        width: 75%;
+    }
+    50%{
+        width: 50%;
+    }
+    75%{
+        width: 25%;
+    }
+    100%{
+        width: 0%;
+    }
+}

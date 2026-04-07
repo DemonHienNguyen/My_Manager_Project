@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết dự án</title>
+    <link rel="stylesheet" href="../CSS/category-manager.css">
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <h2>Quản Lý Dự Án</h2>
+        </div>
+        <nav class="menu">
+            <a href="./product-manager.html">Dự án</a>
+            <a href="./dashbroad.html">Nhiệm vụ của tôi</a>
+            <a href="" id ="btn--SignOut">Đăng xuất</a>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <div class="div--leftContent">
+                <h2 id = "projectName"></h2>
+                <p id = "projectDescription"></p>
+            </div>
+            <div class="div--rightContent">
+                <div class="div--up">
+                    <h3>Thành viên</h3>
+                    <button  id = "btn--addDever">+ Thêm thành viên</button>
+                </div>
+                <div class="div--down" id = "participantsList">
+                    <!-- <div class="participants">
+                        <div class="name">An</div>
+                        <div class="position">
+                            <h4>An nguyễn</h4>
+                            <p>Project owner</p>
+                        </div>
+                    </div>
+                    <div class="participants">
+                        <div class="name">BA</div>
+                        <div class="position">
+                            <h4>Bách Nguyễn</h4>
+                            <p>Fontend Deverloper</p>
+                        </div>
+                    </div> -->
+                    <!-- <div class="orther">
+                        <button id = "orther">
+                            <img src="../resoure/image/Orther.png" alt="">
+                        </button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="addMission">
+                <button id = "btn--addProject">+Thêm nhiệm vụ</button>
+            </div>
+            <div class="findInput">
+                <select name="" id="sortBy" >
+                    <option value="">Sắp xếp theo</option>
+                    <option value="Độ ưu tiên">Độ ưu tiên</option>
+                    <option value="Tiến độ">Tiến độ</option>
+                </select>
+                <input type="text" placeholder="Tìm kiếm nhiệm vụ" id = "findMission">
+            </div>
+        </div>
+        <div class="missionList">
+            <h3>Danh sách nhiệm vụ</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên Nhiệm Vụ</th>
+                        <th>Người Phụ Trách</th>
+                        <th>Ưu Tiên</th>
+                        <th>Ngày Bắt Đầu</th>
+                        <th>Hạn Chót</th>
+                        <th>Tiến Độ</th>
+                        <th>Hành Động</th>
+                    </tr>
+                </thead>
+                <tbody id = "toDoList">
+                    <!-- <tr>
+                        <td colspan="7" class="summary" ><img src="../resoure/image/toBottom.svg" alt=""> To do</td>
+                    </tr> -->
+                    <!-- <tr>
+                        <td>Soạn thảo đề cương dự án</td>
+                        <td>An Nguyễn</td>
+                        <td class="low"><span>Thấp</span></td>
+                        <td>02-24</td>
+                        <td>02-27</td>
+                        <td class="onProgress"><span>Đúng tiến độ</span></td>
+                        <td class="btn--action">
+                            <button class = "btn--edit">Sửa</button>
+                            <button class = "btn--delete">xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Soạn thảo đề cương dự án</td>
+                        <td>An Nguyễn</td>
+                        <td class="medium"><span>Trung bình</span></td>
+                        <td>02-24</td>
+                        <td>02-27</td>
+                        <td class="thereAreRisks"><span>có rủi ro</span></td>
+                        <td class="btn--action">
+                            <button class = "btn--edit">Sửa</button>
+                            <button class = "btn--delete">xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Soạn thảo đề cương dự án</td>
+                        <td>An Nguyễn</td>
+                        <td class="high"><span>Cao</span></td>
+                        <td>02-24</td>
+                        <td>02-27</td>
+                        <td class="repayment"><span>Trả hạn</span></td>
+                        <td class="btn--action">
+                            <button class = "btn--edit">Sửa</button>
+                            <button class = "btn--delete">xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" class="summary"><img src="../resoure/image/toBottom.svg" alt=""> In Progress</td>
+                    </tr>
+                    <tr>
+                        <td>Lên tích hợp kickoff</td>
+                        <td>An Nguyễn</td>
+                        <td class="medium"><span>Trung bình</span></td>
+                        <td>02-24</td>
+                        <td>02-27</td>
+                        <td class="thereAreRisks"><span>Có rủi ro</span></td>
+                        <td class="btn--action">
+                            <button class = "btn--edit">Sửa</button>
+                            <button class = "btn--delete">xóa</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" class="summary"><img src="../resoure/image/toLeft.png" alt=""> In Pending</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" class="summary"><img src="../resoure/image/toLeft.png" alt=""> Done</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <div class="overlay" id="modal-overlay">
+            <div class="popNote">
+                <div class="up">
+                    <h3>Thêm/sủa nhiệm vụ</h3>
+                    <div class="exit">
+                        <button id="sayByePop"><img src="../resoure/image/Vector.svg" alt=""></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="middle">
+                    <label for="">Tên nhiệm vụ</label>
+                    <input type="text" id="addOrEditInput">
+                    <span id="errorNameProject"></span>
+                    <label for="">Người phụ trách</label>
+                    <select name="" id="personInChange">
+                        <!-- <option value="">Chọn người phụ trách</option>
+                        <option value="Hiẻn">Demon :D</option>
+                        <option value="Somebody">Gọi ai đó :D</option> -->
+                    </select>
+                    <span id="errorPersonInChange"></span>
+                    <label for="">Trạng thái</label>
+                    <select name="" id="missionStatus">
+                        <option value="">Chọn trạng thái nhiệm vụ</option>
+                        <option value="To do">To do</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Pending">In Pending</option>
+                        <option value="Done">Done</option>
+                    </select>
+                    <span id="errorMissionStatus"></span>
+                    <label for="">Ngày bắt đầu</label>
+                    <input type="date" id = "dayStart">
+                    <span id="errorDayStart"></span>
+                    <label for="">Hạn cuối</label>
+                    <input type="date" id = "dayEnd">
+                    <span id="errorDayEnd"></span>
+                    <label for="">Độ ưu tiên</label>
+                    <select name="" id="acriStatus">
+                        <option value="">Chọn độ ưu tiên</option>
+                        <option value="Cao">Cao</option>
+                        <option value="Trung bình">Trung bình</option>
+                        <option value="Thấp">Thấp</option>
+                    </select>
+                    <span id="errorAcriStatus"></span>
+                    <label for="">Tiến độ</label>
+                    <select name="" id="processInput">
+                        <option value="">Chọn tiến độ</option>
+                        <option value="Đúng tiến độ">Đúng tiến độ</option>
+                        <option value="Có rủi ro">Có rủi ro</option>
+                        <option value="Trễ hạn">Trễ hạn</option>
+                    </select>
+                    <span id="errorMissionProgress"></span>
+                </div>
+                <hr>
+                <div class="down">
+                    <button id="btn--cancel">Hủy</button>
+                    <button id="btn--save">Lưu</button>
+                </div>
+            </div>
+        </div>
+        <div class="overlay--warnning">
+            <div class="wanningPop">
+                <div class="wanningPop--up">
+                    <h3  id = "title">Xác nhận xóa</h3>
+                    <div class="exit">
+                        <button id="sayBye"><img src="../resoure/image/Vector.svg" alt=""></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="wanningPop--middle">
+                    <p id = "content">Bạn có chắc chắn muốn xóa dự án này ?</p>
+                </div>
+                <hr>
+                <div class="wanningPop--down">
+                    <button id="callCancel">Hủy</button>
+                    <button id="btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="overlayAdd" >
+            <div class="addDeverlop">
+                <div class="addDeverlop--up">
+                    <h3>Thêm thành viên</h3>
+                    <div class="exit">
+                        <button class="escape"><img src="../resoure/image/Vector.svg" alt=""></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="addDeverlop--middle">
+                    <label for="">Email</label>
+                    <input type="text"  id = "addDevInput">
+                    <span id="errorAddEmailDev"></span>
+                    <label for="">Vai trò</label>
+                    <!-- <input type="text" id = "devRoleInput"> -->
+                    <select name="" id="devRoleInput">
+                        <option value="">Vui lòng chọn vị trí của bạn</option>
+                        <option value="Fontend DeveLoper">Fontend DeveLoper</option>
+                        <option value="UX / UI Designer">UX / UI Designer</option>
+                        <option value="Backend Developer">Backend Developer</option>
+                        <option value="Tester">Tester</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Project Manager">Project Manager</option>
+                        <option value="DevSecOp">DevSecOp</option>
+                    </select>
+                    <span id="errorAddRoleDev"></span>
+                </div>
+                <hr>
+                <div class="addDeverlop--down">
+                    <button id="addDeverlop--cancel">Hủy</button>
+                    <button id="addDeverlop--save">Lưu</button>
+                </div>
+            </div>
+        </div>
+        <div class="overlay--devMember" >
+            <div class="Member">
+                <div class="Member--up">
+                    <h3>Thành viên</h3>
+                    <div class="exit">
+                        <button class="btn--exit"><img src="../resoure/image/Vector.svg" alt=""></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="Member--middle">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Thành viên</th>
+                                <th>Vai trò</th>
+                            </tr>
+                        </thead>
+                        <tbody id = "memberList" class = "Tb--memberList">
+                            <!-- <select name="" id="">
+                                
+                            </select> -->
+                            <!-- <tr>
+                                <td>
+                                    <div class = "arvatar">An</div>
+                                    <div class = "information">
+                                        <h4>An Nguyễn</h4>
+                                        <p>nguyenquangan@gmail.com</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text"  value="Project owner">
+                                    <button class ="btn--deleteMember"><img src="../resoure/image/Trash.png" alt=""></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class = "arvatar">BA</div>
+                                    <div class = "information">
+                                        <h4>Bách Nguyễn</h4>
+                                        <p>bachnx@gmail.com</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text"  value="Fontend deverloper">
+                                    <button class ="btn--deleteMember"><img src="../resoure/image/Trash.png" alt=""></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class = "arvatar">DƯ</div>
+                                    <div class = "information">
+                                        <h4>Dương Nguyễn</h4>
+                                        <p>duongnhm@gmail.com</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text"  value="Backend deverloper">
+                                    <button class ="btn--deleteMember"><img src="../resoure/image/Trash.png" alt=""></button>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <span id = "errorMember"></span>
+                </div>
+                <hr>
+                <div class="Member--down">
+                    <button id="Member--cancel">Đóng</button>
+                    <button id="Member--save">Lưu</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="toastSusscess">
+
+    </div>
+    </main>
+    <footer>
+        <p>@2025 Team management. All rights reserved</p>
+    </footer>
+    
+    <script src = "../JS/data.js"></script>
+    <script src="../JS/category-manager.js"></script>
+</body>
+
+</html>

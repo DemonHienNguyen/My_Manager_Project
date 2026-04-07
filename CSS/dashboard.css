@@ -1,0 +1,509 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(../resoure/fonts/Roboto/static/Roboto_SemiCondensed-Regular.ttf) format("truetype");
+    font-weight: bolder;
+    font-style: normal;
+}
+:root{
+    --duration: 4s;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+/* BODY */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* HEADER */
+header {
+    background-color: #212529;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 120px;
+    max-width: 1920px;
+    opacity: 1;
+    height: 60px;
+}
+
+/* THANH MENU */
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: rgba(253, 253, 253, 0.459);
+    text-decoration: none;
+    transition: all 0.25s linear;
+}
+
+.menu a:hover {
+    color: white;
+}
+.menu .active{
+    color: white;
+}
+.title {
+    color: white;
+
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+}
+.tileTop{
+    display: flex;
+    justify-content: flex-start;
+    max-width: 1290px;
+    width: 100%;
+    margin-top: 24px;
+}
+.content{
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1290px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 24px;
+}
+.findInput {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    max-width: 386px;
+    width: 100%;
+}
+
+.findInput select {
+    padding: 5px 10px;
+    max-width: 130px;
+    width: 100%;
+    min-height: 38px;
+    border-radius: 5px;
+    text-align: left;
+    /* justify-content: space-around;
+    display: flex; */
+    border: 1px solid rgba(0, 0, 0, 0.219);
+}
+
+.findInput input {
+    max-width: 230px;
+    width: 100%;
+    padding: 5px 10px;
+    min-height: 38px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.219);
+
+}
+
+.missionList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1296px;
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.241);
+    border-radius: 10px;
+    padding: 17px 17px 30px; 
+    width: 100%;
+    margin: auto;
+}
+
+.missionList h3 {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.missionList table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.missionList th,
+.missionList td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.missionList table {
+    border: none;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.241);
+}
+
+.summary {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+.task-row {
+    max-height: 100px;
+    overflow: hidden;
+    transform-origin: top;
+}
+.empty{
+    text-align: center !important;
+    transition: all 0.25s ease;
+}
+.empty:hover{
+    background-color: #0dcaf059;
+}
+.summary.open img {
+    animation: sipn90Deg 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.summary.hide img {
+    animation: sipnEndDeg 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.tr--summary-child{
+    opacity: 0;
+    animation: goLeft 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.tr--summary-child:nth-child(n) {
+    animation-delay: calc(var(--i) + 0.1s);
+}
+
+td:nth-child(1) {
+    text-align: left;
+}
+
+.low span {
+    display: inline-block;
+    color: white;
+    background-color: #0DCAF0;
+    max-width: 200px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.onProgress span {
+    display: inline-block;
+    color: white;
+    background-color: #198754;
+    max-width: 200px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.missionList span {
+    font-size: 11px;
+}
+
+.medium span {
+    display: inline-block;
+    color: white;
+    background-color: #FFA500;
+    max-width: 200px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+td:nth-child(3){
+    width: 150px;
+}
+td:nth-child(4),
+td:nth-child(5) {
+    color: #0D6EFD;
+}
+
+.thereAreRisks span {
+    display: inline-block;
+    color: white;
+    background-color: #FFA500;
+    max-width: 200px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.content .addMission button {
+    padding: 12px 20px;
+    background-color: #0D6EFD;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.content .addMission button:hover {
+    scale: calc(1.1);
+}
+
+.high span {
+    display: inline-block;
+    color: white;
+    background-color: #DC3545;
+    max-width: 200px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.repayment span {
+    display: inline-block;
+    color: white;
+    background-color: #DC3545;
+    max-width: 200px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+}
+.btn--change{
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.btn--change:hover{
+    transform: scale(1.2);
+    margin: 0px 10px;
+}
+/* CSS cho xóa và đăng xuất */
+.overlay--warnning{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease; 
+}
+.overlay--warnning.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+.wanningPop{
+    position: fixed;
+    top: 5%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 480px;
+    width: 100%;
+    min-height: 230px;
+    height: auto;
+    background-color: #FFFFFF;
+    /* background-color: red; */
+    /* padding: 20px; */
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.241);
+    border-radius: 10px;
+}
+.wanningPop.active{
+    animation: goIn 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    /* display: block; */
+}
+.wanningPop.remove{
+    animation: goOut 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    /* display: block; */
+}
+.wanningPop .wanningPop--up{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 20px 5px;
+}
+.wanningPop .wanningPop--up button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.wanningPop .wanningPop--middle{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 50px 20px;
+}
+.wanningPop .wanningPop--down{
+    display: flex;
+    width: 100%;
+    padding: 10px 20px; 
+    justify-content: flex-end;
+    gap: 10px;
+}
+.wanningPop .wanningPop--down button{
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.wanningPop .wanningPop--down #callCancel {
+    background-color: #6C757D;
+    transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.wanningPop .wanningPop--down #callCancel:hover{
+    background-color:#d6dbdf;
+    transform: scale(1.1);
+}
+
+.wanningPop .wanningPop--down #btn-danger {
+    background-color: #DC3545;
+    color: white;
+    transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.wanningPop .wanningPop--down #btn-danger:hover{
+    background-color: #fa0019;
+    transform: scale(1.1);
+}
+.toastSusscess {
+    position: fixed;
+    max-width: 350px;
+    width: 100%;
+    top: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 20px;
+    z-index: 3000;
+}
+
+.div--success {
+    text-align: center;
+    background-color: rgba(16, 208, 86, 0.562);
+    padding: 0px;
+    width: 100%;
+    border-left: 5px solid #0dfdb1;
+    border-radius: 6px;
+    overflow: hidden;
+    color: rgb(33, 104, 33);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50px;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.208),
+        0 0 2px 4px rgba(43, 217, 226, 0.243);
+    opacity: 0;
+    transform: translateX(120%) scale(0.9);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.div--success h4 {
+    padding: 6px 5px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.div--success.active {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+    /* animation: goIn 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; */
+}
+
+.process.active {
+    animation: process var(--duration) linear forwards;
+}
+
+.div--success .process {
+    height: 4px;
+    background-color: #0dfdb1;
+    transform-origin: left;
+}
+footer {
+    margin-top: 30px;
+    background-color: #212529;
+    color: white;
+    min-height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes goIn{
+    from{
+        opacity: 0;
+        /* top: -350%; */
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+        /* top: 20%; */
+    }
+}
+@keyframes goOut{
+    from{
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+@keyframes sipn90Deg{
+    from {
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(90deg);
+    }
+}
+@keyframes sipnEndDeg{
+    from {
+        transform: rotate(90deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+}
+@keyframes goLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes process {
+    0% {
+        width: 100%;
+    }
+
+    25% {
+        width: 75%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    75% {
+        width: 25%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}

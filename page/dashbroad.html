@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhiệm vụ cá nhân</title>
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    </style> -->
+</head>
+
+<body class="body">
+    <header>
+        <div class="title">
+            <h2>Quản Lý Dự Án</h2>
+        </div>
+        <nav class="menu">
+            <a href="./product-manager.html">Dự án</a>
+            <a href="#" class="active">Nhiệm vụ của tôi</a>
+            <a href="" id="btn--SignOut" class="active">Đăng xuất</a>
+        </nav>
+    </header>
+    <main>
+        <div class="tileTop">
+            <h2>Quản lý nhiệm vụ</h2>
+        </div>
+        <div class="content">
+            <div class="findInput">
+                <select name="" id="sortBy">
+                    <option value="">Sắp xếp theo</option>
+                    <option value="Hạn chót">Hạn chót</option>
+                    <option value="Độ ưu tiên">Độ ưu tiên</option>
+                </select>
+                <input type="text" placeholder="Tìm kiếm nhiệm vụ" id = "findInput">
+            </div>
+        </div>
+        <div class="missionList">
+            <h3>Danh sách nhiệm vụ</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên Nhiệm Vụ</th>
+                        <th>Độ ưu Tiên</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày Bắt Đầu</th>
+                        <th>Hạn Chót</th>
+                        <th>Tiến Độ</th>
+                    </tr>
+                </thead>
+                <tbody id="toDoList">
+                    <!-- <tr>
+                        <td colspan="7" class="summary"><img src="../resoure/image/toBottom.svg" alt=""> To do</td>
+                    </tr>
+                    <tr>
+                        <td>Soạn thảo đề cương dự án</td>
+                        <td class="low"><span>Thấp</span></td>
+                        <td>In progress <button class="btn--change"><img src="../resoure/image/ButChiTrenGiay.svg"
+                                    alt=""></button></td>
+                        <td>02-24</td>
+                        <td>02-27</td>
+                        <td class="onProgress"><span>Đúng tiến độ</span></td>
+                    </tr>
+                    <tr>
+                        <td>Soạn thảo đề cương dự án</td>
+                        <td class="medium"><span>Trung bình</span></td>
+                        <td>In progress <button class="btn--change"><img src="../resoure/image/ButChiTrenGiay.svg"
+                                    alt=""></button></td>
+                        <td>02-24</td>
+                        <td>02-27</td>
+                        <td class="thereAreRisks"><span>có rủi ro</span></td>
+                    </tr>
+                    <tr>
+                        <td>Soạn thảo đề cương dự án</td>
+                        <td class="high"><span>Cao</span></td>
+                        <td>Pending <button class="btn--change"><img src="../resoure/image/ButChiTrenGiay.svg"
+                                    alt=""></button></td>
+                        <td>02-24</td>
+                        <td>02-27</td>
+                        <td class="repayment"><span>Trả hạn</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" class="summary"><img src="../resoure/image/toBottom.svg" alt=""> In Progress
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lên tích hợp kickoff</td>
+                        <td class="medium"><span>Trung bình</span></td>
+                        <td>In progress <button class="btn--change"><img src="../resoure/image/ButChiTrenGiay.svg"
+                                    alt=""></button></td>
+                        <td>02-24</td>
+                        <td>02-27</td>
+                        <td class="thereAreRisks"><span>Có rủi ro</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" class="summary"><img src="../resoure/image/toLeft.png" alt=""> In Pending</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" class="summary"><img src="../resoure/image/toLeft.png" alt=""> Done</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <div class="overlay--warnning">
+            <div class="wanningPop">
+                <div class="wanningPop--up">
+                    <h3 id="title">Xác nhận xóa</h3>
+                    <div class="exit">
+                        <button id="sayBye"><img src="../resoure/image/Vector.svg" alt=""></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="wanningPop--middle">
+                    <p id="content">Bạn có chắc chắn muốn xóa dự án này ?</p>
+                </div>
+                <hr>
+                <div class="wanningPop--down">
+                    <button id="callCancel">Hủy</button>
+                    <button id="btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+        <div class="toastSusscess">
+
+        </div>
+    </main>
+    <footer>
+        <p>@2025 Team management. All rights reserved</p>
+    </footer>
+    <script src="../JS/data.js"></script>
+    <script src="../JS/dashbroad.js"></script>
+</body>
+
+</html>

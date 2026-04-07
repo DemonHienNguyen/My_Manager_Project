@@ -1,0 +1,585 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(../resoure/fonts/Roboto/static/Roboto_SemiCondensed-Regular.ttf) format("truetype");
+    font-weight: bolder;
+    font-style: normal;
+}
+:root{
+    --duration: 4s;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+/* BODY */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* HEADER */
+header {
+    background-color: #212529;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 120px;
+    max-width: 1920px;
+    opacity: 1;
+    height: 60px;
+}
+
+/* THANH MENU */
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: rgba(253, 253, 253, 0.459);
+    text-decoration: none;
+    transition: all 0.25s linear;
+}
+
+.menu a:hover {
+    color: white;
+}
+nav .active{
+    color: white;
+}
+/* .menu a:visited{
+    color: white;
+} */
+
+.title {
+    color: white;
+
+}
+
+
+/* MAIN */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+/* TRANG CHỨA NỘI DUNG */
+.container {
+    margin-top: 24px;
+    max-width: 1296px;
+    width: 90%;
+    min-height: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    padding: 25px;
+    opacity: 1;
+    border-width: 1px;
+    top: 80px;
+    left: 312px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.322);
+}
+
+.container h3:nth-child(1) {
+    margin-bottom: 20px;
+    font-size: 23.59px;
+    font-weight: 500;
+}
+
+.container h3:nth-child(3) {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.div--form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.div--form button {
+    padding: 10px 30px;
+    background-color: #0D6EFD;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    cursor: pointer;
+}
+#btn--addProject:hover .animate{
+    animation: goSpin 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite alternate;
+}
+.animate{
+    display: inline-block;
+}
+.div--form input {
+    border-radius: 6px;
+    border-width: 1px;
+    padding: 0 5px;
+    max-width: 433px;
+    width: 100%;
+}
+/* BẢNG */
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    border: 1px solid rgba(0, 0, 0, 0.14);
+}
+.tableProject table tbody tr, .tableProject table tbody td{
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.tableProject table tbody tr:hover{
+    background-color: #a6c7e4;
+    /* transform: translateX(5px); */
+}
+.tableProject thead th {
+    height: 41px;
+    background-color: black;
+    color: white;
+    border: 1px solid rgba(244, 243, 255, 0.64);
+}
+
+.tableProject td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.084);
+}
+
+.tableProject th:nth-child(1),
+.tableProject td:nth-child(1) {
+    width: 80px;
+}
+
+.tableProject th:nth-child(2),
+.tableProject td:nth-child(2) {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.tableProject th:nth-child(3),
+.tableProject tbody td:nth-child(3) {
+    width: 320px;
+}
+
+td:nth-child(3) button {
+    height: 31px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin: 0 3px;
+    transition: all 0.2s ease;
+}
+
+td:nth-child(3) button:hover {
+    transform: scale(1.1);
+}
+
+/* Màu button */
+td:nth-child(3) button:nth-child(1) {
+    background-color: #FFC107;
+}
+
+td:nth-child(3) button:nth-child(2) {
+    background-color: #DC3545;
+    color: white;
+}
+
+td:nth-child(3) button:nth-child(3) {
+    background-color: #0D6EFD;
+    color: white;
+}
+
+td:nth-child(3) button {
+    width: 61;
+    height: 31;
+    border-radius: 4px;
+    border-width: 1px;
+    padding: 5px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+td:nth-child(3) button:hover{
+    transform: scale(1.2);
+    margin: 0 10px;
+}
+/* CÁC NÚT TRONG BẢNG DANH SÁCH */
+td:nth-child(3) button:nth-child(1) {
+    background-color: #FFC107;
+}
+td:nth-child(3) button:nth-child(2) {
+    background-color: #DC3545;
+    padding: 5px 10px;
+    color: white;
+}
+td:nth-child(3) button:nth-child(3) {
+    background-color: #0D6EFD;
+    padding: 5px 10px;
+    color: white;
+}
+.menuAction{
+    margin-top: 24px;
+}
+/* Trang Buton phân trang */
+.pagination-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f3f4f6;
+    padding: 6px;
+    border-radius: 8px;
+    width: fit-content;
+}
+.page-btn {
+    min-width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #374151;
+    transition: all 0.2s ease;
+}
+.page-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+.page-btn:disabled{
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: auto;
+}
+
+/* CSS cho phần thêm/ sửa */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease; 
+}
+.overlay.active{
+    opacity: 1;
+    pointer-events: auto;   
+}
+.popNote{
+    position: fixed;
+    top: 5%;
+    display: flex;
+    /* display: none; */
+    flex-direction: column;
+    gap: 10px;
+    max-width: 480px;
+    width: 100%;
+    min-height: 350px;
+    height: auto;
+    background-color: #FFFFFF;
+    /* background-color: red; */
+    /* padding: 20px; */
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.241);
+    border-radius: 10px;
+    
+}
+.popNote.active{
+    animation: goIn 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    /* display: block; */
+}
+.popNote.remove{
+    animation: goOut 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+.popNote .up{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 20px 5px;
+}
+.popNote .up button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.popNote .middle{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 20px 5px;
+}
+.popNote .middle input{
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.162);
+}
+.popNote .middle textarea{
+    padding: 10px 10px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.162);
+}
+.down{
+    margin: 20px 20px 20px 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.down button{
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.down button:nth-child(1){
+    background-color: #6C757D;
+}
+.down button:nth-child(2){
+    background-color:#0D6EFD;
+}
+
+/* CSS cho xóa và đăng xuất */
+.overlay--warnning{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease; 
+}
+.overlay--warnning.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+.wanningPop{
+    position: fixed;
+    top: 5%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 480px;
+    width: 100%;
+    min-height: 230px;
+    height: auto;
+    background-color: #FFFFFF;
+    /* background-color: red; */
+    /* padding: 20px; */
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.241);
+    border-radius: 10px;
+}
+.wanningPop.active{
+    animation: goIn 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    /* display: block; */
+}
+.wanningPop.remove{
+    animation: goOut 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    /* display: block; */
+}
+.wanningPop .wanningPop--up{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 20px 5px;
+}
+.wanningPop .wanningPop--up button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.wanningPop .wanningPop--middle{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 50px 20px;
+}
+.wanningPop .wanningPop--down{
+    display: flex;
+    width: 100%;
+    padding: 10px 20px; 
+    justify-content: flex-end;
+    gap: 10px;
+}
+.wanningPop .wanningPop--down button{
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.wanningPop .wanningPop--down #callCancel {
+    background-color: #6C757D;
+    transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.wanningPop .wanningPop--down #callCancel:hover{
+    background-color:#d6dbdf;
+    transform: scale(1.1);
+}
+
+.wanningPop .wanningPop--down #btn-danger {
+    background-color: #DC3545;
+    color: white;
+    transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.wanningPop .wanningPop--down #btn-danger:hover{
+    background-color: #fa0019;
+    transform: scale(1.1);
+}
+/* TOAST */
+.toastSusscess{
+    position: fixed;
+    max-width: 350px;
+    width: 100%;
+    top: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 20px;
+}
+.div--success{
+    text-align: center;
+    background-color: rgba(16, 208, 86, 0.222) ;
+    padding: 0px;
+    width: 100%;
+    border-left: 5px solid #0dfdb1;
+    border-radius: 6px;
+    overflow: hidden;
+    color: rgb(33, 104, 33);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50px;
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.208),
+                0 0 2px 4px rgba(43, 217, 226, 0.2);
+    opacity: 0;
+    transform: translateX(120%) scale(0.9);
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.div--success h4{
+    padding: 6px 5px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.div--success.active{
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+    /* animation: goIn 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; */
+}
+.process.active{
+    animation: process var(--duration) linear forwards;
+}
+.div--success .process{
+    height: 4px;
+    background-color: #0dfdb1;
+    transform-origin: left;
+}
+
+footer{
+    background-color: #212529;
+    color: white;
+    min-height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+@keyframes goIn{
+    from{
+        opacity: 0;
+        /* top: -350%; */
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+        /* top: 20%; */
+    }
+}
+@keyframes goOut{
+    from{
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+@keyframes goSpin{
+    0%{
+        transform: translateX(0) scale(1) rotate(0deg);
+        
+    }
+    25%{
+        transform: translateX(-30px) scale(1.5) rotate(90deg);
+        color: black;
+    }
+    35%{
+        transform: translateX(-40px) scale(1.6) rotate(120deg);
+        color: rgb(5, 249, 90);
+    }
+    50%{
+        transform: translateX(-50px) scale(2.3) rotate(180deg);
+        color: rgb(174, 0, 255);
+        
+    }
+    75%{
+        transform: translateX(-100px) scale(2.6) rotate(200deg);
+        color: rgb(163, 16, 134);
+    }
+    85%{
+        transform: translateX(-90px) scale(2) rotate(260deg);
+        color: rgb(28, 235, 9);
+    }
+    95%{
+        transform: translateX(-90px) scale(1.4) rotate(300deg);
+        color: rgb(166, 196, 55);
+    }
+    100%{
+        transform: translateX(-90px) scale(1.4) rotate(360deg);
+        color: black;
+    }
+}
+@keyframes process{
+    0%{
+        width: 100%;
+    }
+    25%{
+        width: 75%;
+    }
+    50%{
+        width: 50%;
+    }
+    75%{
+        width: 25%;
+    }
+    100%{
+        width: 0%;
+    }
+}

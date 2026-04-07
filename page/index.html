@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="../CSS/resgiter.css">
+</head>
+
+<body>
+    <h2>Đăng ký</h2>
+    <div class="container">
+        <div class="div--form">
+            <div class = "div--input">
+                <input id  = "nameInput" type="text" placeholder="Họ và tên">
+                <span id = "errorName">*Tên không hợp lệ </span>
+            </div>
+            <div class = "div--input">
+                <input id = "emailInput" type="email" placeholder="Địa chỉ email">
+                <span id = "errorEmail">*Email không hợp lệ </span>
+            </div>
+            <div class = "div--input">
+                <input id = "passInput" type="password" placeholder="Mật khẩu">
+                <span id = "errorPass">*Mật khẩu không hợp lệ</span>
+            </div>
+            <div class = "div--input">
+                <input id = "passAgain" type="password" placeholder="Xác nhận Mật khẩu">
+                <span id = "errorPassAgain">*Mật khẩu nhập lại không hợp lệ</span>
+            </div>
+            <button id="btn--regiter">Đăng ký</button>
+        </div>
+        <p>Đã có tài khoản ? <a href="../page/login.html">Đăng nhập</a></p>
+    </div>
+    <div class = "toastSusscess">
+         <!-- <div class = "div--success">
+            <h4>Đăng ký thành công !</h4>
+            <div class = "process">
+                
+            </div>
+         </div> -->
+    </div>
+    <script src="../JS/resgiter.js"></script>
+    <script src ="../JS/data.js"></script>
+</body>
+
+</html>

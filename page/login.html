@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+
+<body>
+    <h1>Đăng nhập</h1>
+    <div class="container">
+        <div class="div--form">
+            <div class="div--input">
+                <label for="">Email</label>
+                <input id="emailInput" type="text" placeholder="Địa chỉ email">
+            </div>
+            <span id="errorEmail">*Email không hợp lệ</span>
+            <div class="div--input">
+                <label for="">Mật khẩu</label>
+                <input id="passInput" type="password" placeholder="Mật khẩu">
+            </div>
+            <span id="errorPassword">*Mật khẩu không hợp lệ</span>
+            <button id="btn--login">Đăng nhập</button>
+        </div>
+        <p>Chưa có tài khoản ? <a href="../page/index.html">Đăng ký</a></p>
+    </div>
+    <div class="toastSusscess">
+        
+    </div>
+    <script src ="../JS/data.js"></script>
+    <script src="../JS/login.js"></script>
+    
+</body>
+
+</html>

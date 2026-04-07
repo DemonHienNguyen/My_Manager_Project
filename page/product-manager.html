@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý dự án</title>
+    <link rel="stylesheet" href="../CSS/project-manager.css">
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    </style> -->
+</head>
+
+<body class="body">
+    <header>
+        <div class="title">
+            <h2>Quản Lý Dự Án</h2>
+        </div>
+        <nav class="menu">
+            <a href="#" class ="active">Dự án</a>
+            <a href="./dashbroad.html">Nhiệm vụ của tôi</a>
+            <a href="" id ="btn--SignOut" class ="active">Đăng xuất</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h3>Quản Lý Dự Án Nhóm</h3>
+            <div class="div--form">
+                <button id="btn--addProject"><div class = "animate">+ </div> Thêm Dự Án</button>
+                <input id="findInput" type="text" placeholder="Tìm kiếm dự án">
+            </div>
+            <h3>Danh Sách Dự Án</h3>
+            <div class="tableProject">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên Dự Án</th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="projectList">
+                        <!-- <tr>
+                            <td>1</td>
+                            <td>Xây dựng website thương mại điện tử</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Phát triển ứng dụng di động</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Quản lý dữ liệu khách hàng</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Xây dựng website thương mại điện tử</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Phát triển ứng dụng di động</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Quản lý dữ liệu khách hàng</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Xây dựng website thương mại điện tử</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Phát triển ứng dụng di động</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Quản lý dữ liệu khách hàng</td>
+                            <td class="btn--action">
+                                <button class="btn--edit">Sửa</button>
+                                <button class="btn--delete">Xóa</button>
+                                <button class="btn--more">Chi tiết</button>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="menuAction">
+            <div id="pagination" class="pagination-container"></div>
+        </div>
+        <div class="overlay" id="modal-overlay">
+            <div class="popNote">
+                <div class="up">
+                    <h3>Thêm/sủa dự án</h3>
+                    <div class="exit">
+                        <button id="sayByePop"><img src="../resoure/image/Vector.svg" alt=""></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="middle">
+                    <label for="">Tên dự án</label>
+                    <input type="text" id="addOrEditInput">
+                    <span id="errorNameProject"></span>
+                    <label for="">Mô tả dự án</label>
+                    <textarea name="" id="descriptionInput" cols="50" rows="4"></textarea>
+                    <span id = "errorDescription"></span>
+                </div>
+                <hr>
+                <div class="down">
+                    <button id="btn--cancel">Hủy</button>
+                    <button id="btn--save">Lưu</button>
+                </div>
+            </div>
+        </div>
+        <div class="overlay--warnning">
+            <div class="wanningPop">
+                <div class="wanningPop--up">
+                    <h3  id = "title">Xác nhận xóa</h3>
+                    <div class="exit">
+                        <button id="sayBye"><img src="../resoure/image/Vector.svg" alt=""></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="wanningPop--middle">
+                    <p id = "content">Bạn có chắc chắn muốn xóa dự án này ?</p>
+                </div>
+                <hr>
+                <div class="wanningPop--down">
+                    <button id="callCancel">Hủy</button>
+                    <button id="btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="toastSusscess">
+
+    </div>
+    </main>
+    <footer>
+        <p>@2025 Team management. All rights reserved</p>
+    </footer>
+    <script src ="../JS/data.js"></script>
+    <script src="../JS/project-manager.js"></script>
+</body>
+
+</html>
