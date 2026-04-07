@@ -30,7 +30,7 @@ function getUser() {
 window.onload = () =>{
     curentUser = getCurrentUser();
     if(curentUser){
-        window.location.replace("../page/product-manager.html");
+        window.location.replace("./page/product-manager.html");
     }
 }
 
@@ -66,24 +66,40 @@ btnLogin.addEventListener("click", () => {
 function createToast(message) {
     const div = document.createElement("div");
     div.className = "div--success";
+
     div.innerHTML = `
-    <h4>${message}</h4>
-    <div class = "process">
-                
-    </div>
-  `;
+        <div class="icon">✔</div>
+        <div class="content">
+            <h4>${message}</h4>
+            <p>Thao tác đã hoàn tất</p>
+        </div>
+        <div class="process"></div>
+    `;
+
     toastList.appendChild(div);
-    if (toastList.childElementCount > 1) {
+
+    // giới hạn số lượng toast (đỡ spam màn hình)
+    const MAX_TOAST = 3;
+    if (toastList.childElementCount > MAX_TOAST) {
         toastList.firstElementChild.remove();
     }
-    setTimeout(() => {
-        div.classList.add("active");
-        div.querySelector(".process").classList.add("active");
-        div.querySelector(".process").style.animationDuration = 3000 + "ms";
-    }, 10);
 
+    // delay nhỏ để trigger animation
+    requestAnimationFrame(() => {
+        div.classList.add("active");
+
+        const process = div.querySelector(".process");
+        process.classList.add("active");
+        process.style.animationDuration = "3000ms";
+    });
+
+    // auto remove (có fade out nhẹ cho đỡ “biến mất như chưa từng tồn tại”)
     setTimeout(() => {
-        div.remove();
+        div.classList.remove("active");
+
+        setTimeout(() => {
+            div.remove();
+        }, 400); // chờ animation out
     }, 3000);
 }
 

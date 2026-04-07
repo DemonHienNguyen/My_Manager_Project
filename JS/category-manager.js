@@ -404,7 +404,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 progress: progress,
                 status: status,
             });
-            createToast("Thêm thành công");
+            createToast("Thêm thành công", "✓");
         } else {
             if (taskInProject.some(c => c.taskName.toLowerCase() === missionName.toLowerCase() && c.id !==editId) ) {
                 showError(errorNameMission, missionProjectAdd, "Tên nhiệm vụ không được trùng !");
@@ -419,7 +419,7 @@ window.addEventListener("DOMContentLoaded", () => {
             updateTask.priority = acriStatusMision.value;
             updateTask.progress = missionProgress.value;
             updateTask.status = missionStatus.value;
-            createToast("cập nhập thành công");
+            createToast("cập nhập thành công", "✓");
             editId = null;
         }
         saveTasks(tasks);
@@ -438,7 +438,7 @@ window.addEventListener("DOMContentLoaded", () => {
     btnDanger.addEventListener("click", () => {
         if (deleteAndEscape === -1) {
             // đăng xuất
-            createToast("Đăng xuất thành công");
+            createToast("Đăng xuất thành công", "✓");
             btnDel_warning.click();
             setTimeout(() => {
                 localStorage.removeItem("curentUser");
@@ -452,14 +452,14 @@ window.addEventListener("DOMContentLoaded", () => {
             const role = detailProject.members.find(c => c.userId === deleteMember).role;
             if (role === "Project owner") {
                 btnDel_warning.click();
-                createToast("Không được xóa Project owner");
+                createToast("Không được xóa Project owner", "❌");
                 return;
             }
             detailProject.members = detailProject.members.filter(c => c.userId !== deleteMember);
             saveProject(projects);
             btnDel_warning.click();
             // btnDeletePopMember.click();
-            createToast("Xóa thành công");
+            createToast("Xóa thành công", "✓");
             renderMemberProjectInside(detailProject.members)
             deleteMember = null;
             init();
@@ -470,7 +470,7 @@ window.addEventListener("DOMContentLoaded", () => {
             tasks = tasks.filter(c => c.id !== deleteAndEscape);
             saveTasks(tasks);
             init();
-            createToast("Xóa thành công");
+            createToast("Xóa thành công", "✓");
             btnDel_warning.click();
             deleteAndEscape = null;
             return;
@@ -629,28 +629,42 @@ window.addEventListener("DOMContentLoaded", () => {
         Các hàm thực thi
     */
     // Hàm tạo ra thống báo khi đăng xuất thành công  !
-    function createToast(message) {
+    function createToast(message, icon) {
         const div = document.createElement("div");
         div.className = "div--success";
+
         div.innerHTML = `
-        <h4>${message}</h4>
-        <div class = "process">
-                    
+        <div class="icon">${icon}</div>
+        <div class="content">
+            <h4>${message}</h4>
         </div>
-      `;
+        <div class="process"></div>
+    `;
+
         toastList.appendChild(div);
-        if (toastList.childElementCount > 1) {
+
+        // giới hạn số lượng toast (đỡ spam màn hình)
+        const MAX_TOAST = 3;
+        if (toastList.childElementCount > MAX_TOAST) {
             toastList.firstElementChild.remove();
         }
+
+        // delay nhỏ để trigger animation
         setTimeout(() => {
             div.classList.add("active");
-            div.querySelector(".process").classList.add("active");
-            div.querySelector(".process").style.animationDuration = 3000 + "ms";
+
+            const process = div.querySelector(".process");
+            process.classList.add("active");
+            process.style.animationDuration = "3000ms";
         }, 10);
 
         setTimeout(() => {
-            div.remove();
-        }, 4500);
+            div.classList.remove("active");
+
+            setTimeout(() => {
+                div.remove();
+            }, 400);
+        }, 3000);
     }
     //
 

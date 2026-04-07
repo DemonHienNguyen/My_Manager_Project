@@ -194,14 +194,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 return
             }
             project.push({
-                id: project.length ? project[project.length -1].id + 1: 1,
+                id: project.length ? project[project.length - 1].id + 1 : 1,
                 projectName: nameProject,
                 projectDecription: decription,
                 members: [
                     { userId: curentUser.id, role: "Project owner" },
                 ],
             });
-            createToast("Thêm thành công !");
+            createToast("Thêm thành công !", "✓");
         } else {
             const updateProjectName = nameNewProjectInput.value.trim();
             if (updateProjectName === "") {
@@ -221,7 +221,7 @@ window.addEventListener("DOMContentLoaded", () => {
             let updateProject = project.find(c => c.id === editId);
             updateProject.projectName = nameNewProjectInput.value.trim();
             updateProject.projectDecription = newProjectDescription.value.trim();
-            createToast("Cập nhập thành công");
+            createToast("Cập nhập thành công", "✓");
             editId = null;
         }
         clearFormAdd();
@@ -235,7 +235,7 @@ window.addEventListener("DOMContentLoaded", () => {
     btnDanger.addEventListener("click", () => {
         if (deleteAndEscape === -1) {
             btnDel_warning.click();
-            createToast("Đăng xuất thành công");
+            createToast("Đăng xuất thành công", "✓");
             setTimeout(() => {
                 localStorage.removeItem("curentUser");
                 window.location.href = "../page/login.html";
@@ -246,7 +246,7 @@ window.addEventListener("DOMContentLoaded", () => {
             project = project.filter(c => c.id !== deleteAndEscape);
             saveProject(project);
             renderProject(project);
-            createToast("Xóa thành công");
+            createToast("Xóa thành công", "✓");
             userProject = updateUserProject();
             btnDel_warning.click();
         }
@@ -305,27 +305,41 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     // Hàm tạo ra thông báo
-    function createToast(message) {
+    function createToast(message, icon) {
         const div = document.createElement("div");
         div.className = "div--success";
+
         div.innerHTML = `
+        <div class="icon">${icon}</div>
+        <div class="content">
             <h4>${message}</h4>
-            <div class = "process">
-                        
-            </div>
-          `;
+        </div>
+        <div class="process"></div>
+    `;
+
         toastList.appendChild(div);
-        if (toastList.childElementCount > 1) {
+
+        // giới hạn số lượng toast (đỡ spam màn hình)
+        const MAX_TOAST = 3;
+        if (toastList.childElementCount > MAX_TOAST) {
             toastList.firstElementChild.remove();
         }
+
+        // delay nhỏ để trigger animation
         setTimeout(() => {
             div.classList.add("active");
-            div.querySelector(".process").classList.add("active");
-            div.querySelector(".process").style.animationDuration = 3000 + "ms";
+
+            const process = div.querySelector(".process");
+            process.classList.add("active");
+            process.style.animationDuration = "3000ms";
         }, 10);
 
         setTimeout(() => {
-            div.remove();
+            div.classList.remove("active");
+
+            setTimeout(() => {
+                div.remove();
+            }, 400); 
         }, 3000);
     }
     //

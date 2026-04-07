@@ -32,7 +32,7 @@ function getUser() {
 window.onload = () =>{
     curentUser = getCurrentUser();
     if(curentUser){
-        window.location.replace("../page/product-manager.html");
+        window.location.replace("./page/product-manager.html");
     }
 }
 
@@ -83,7 +83,7 @@ btnResgiter.addEventListener("click", (e) => {
 
   createToast("Đăng ký thành công");
   setTimeout(() => {
-    window.location.href = "../page/loading.html";
+    window.location.href = "./page/loading.html";
   }, 4000);
 });
 

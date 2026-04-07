@@ -113,10 +113,10 @@ window.addEventListener("DOMContentLoaded", () => {
             saveTasks(tasks);
             reloadTaskData();
             renderAllTask();
-            createToast("Cập nhập thành công");
+            createToast("Cập nhập thành công",  "✓");
             return;
         }
-        createToast("Đăng xuất thành công");
+        createToast("Đăng xuất thành công", "✓");
         sayBye.click();
         setTimeout(() => {
             localStorage.removeItem("curentUser");
@@ -149,7 +149,7 @@ window.addEventListener("DOMContentLoaded", () => {
     function renderMissionSection(taskList) {
         const fragment = document.createDocumentFragment(); // Tạo ra một Đối tượng DOM Trống (Tạm thời)để thêm vào phần tử thay vì render từng tr một ta đắp vào thành 1 cục rồi mới đắp vào 
         const group = {};
-        if (taskBelongUser.length === 0) {
+        if (taskList.length === 0) {
             const summaryRow = document.createElement("tr");
             summaryRow.innerHTML = `
                         <td colspan="7" class="empty ">Chưa có nhiệm vụ nào</td>
@@ -284,29 +284,43 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     // Hàm tạo ra thống báo khi đăng xuất thành công  !
-    function createToast(message) {
+    function createToast(message, icon) {
         const div = document.createElement("div");
         div.className = "div--success";
+
         div.innerHTML = `
-        <h4>${message}</h4>
-        <div class = "process">
-                    
+        <div class="icon">${icon}</div>
+        <div class="content">
+            <h4>${message}</h4>
         </div>
-      `;
+        <div class="process"></div>
+    `;
+
         toastList.appendChild(div);
-        if (toastList.childElementCount > 1) {
+
+        // giới hạn số lượng toast (đỡ spam màn hình)
+        const MAX_TOAST = 3;
+        if (toastList.childElementCount > MAX_TOAST) {
             toastList.firstElementChild.remove();
         }
+
         setTimeout(() => {
             div.classList.add("active");
-            div.querySelector(".process").classList.add("active");
-            div.querySelector(".process").style.animationDuration = 3000 + "ms";
+
+            const process = div.querySelector(".process");
+            process.classList.add("active");
+            process.style.animationDuration = "3000ms";
         }, 10);
 
         setTimeout(() => {
-            div.remove();
+            div.classList.remove("active");
+
+            setTimeout(() => {
+                div.remove();
+            }, 400);
         }, 3000);
     }
+    //
     // Hàm chức năng
     function findNameProject(projectId) {
         let result = projects.find(c => c.id === projectId);

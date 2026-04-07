@@ -136,52 +136,75 @@ input:focus {
     outline: none;
 }
 
-.toastSusscess{
+.toastSusscess {
     position: fixed;
-    max-width: 350px;
-    width: 100%;
     top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     right: 20px;
-}
-.div--success{
-    text-align: center;
-    background-color: rgba(16, 208, 86, 0.222) ;
-    padding: 0px;
-    width: 100%;
-    border-left: 5px solid #0dfdb1;
-    border-radius: 6px;
-    overflow: hidden;
-    color: rgb(33, 104, 33);
+    width: 320px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 50px;
-    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.208),
-                0 0 2px 4px rgba(43, 217, 226, 0.2);
+    gap: 10px;
+    z-index: 999;
+}
+
+.div--success {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border-left: 5px solid #22c55e;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    
     opacity: 0;
-    transform: translateX(120%) scale(0.9);
-    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(120%);
+    transition: all 0.5s ease;
 }
-.div--success h4{
-    padding: 6px 5px 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+.div--success .icon {
+    font-size: 20px;
+    color: #22c55e;
 }
-.div--success.active{
+
+.div--success .content {
+    flex: 1;
+}
+
+.div--success h4 {
+    font-size: 15px;
+    margin-bottom: 2px;
+    color: #111827;
+}
+
+.div--success p {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.div--success.active {
     opacity: 1;
-    transform: translateX(0%) scale(1);
-    /* animation: goIn 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; */
+    transform: translateX(0);
 }
-.process.active{
+
+.div--success .process {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #22c55e;
+    transform-origin: left;
+}
+
+.process.active {
     animation: process var(--duration) linear forwards;
 }
-.div--success .process{
-    height: 4px;
-    background-color: #0dfdb1;
-    transform-origin: left;
+
+/* animation */
+@keyframes process {
+    from { width: 100%; }
+    to { width: 0%; }
 }
 
 @keyframes fadeUp {
