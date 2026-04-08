@@ -30,7 +30,7 @@ function getUser() {
 window.onload = () =>{
     curentUser = getCurrentUser();
     if(curentUser){
-        window.location.replace("./page/product-manager.html");
+        window.location.replace("./product-manager.html");
     }
 }
 
